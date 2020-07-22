@@ -12,6 +12,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: posting
       run: ./.github/workflows/issue_post.sh
+    - name: regen site
+      uses: nelsonjchen/gh-pages-pelican-action@0.1.5
 
     env:
       GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
