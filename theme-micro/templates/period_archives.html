@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - Archives for {{ period | reverse | join(' ') }}{% endblock %}
+
+{% block content %}
+<h1>Archives for {{ period | reverse | join(' ') }}</h1>
+
+<dl>
+{% for article in dates %}
+    <section id="box">
+        <div class="dent">{{ article.content }}</div>
+
+        <p class="post-dent">
+        Submitted on {{ article.date|strftime('%d %B %Y %H:%M:%S') }}
+        <br/>
+        By {% for author in article.authors %} {{ author }} {% endfor %}
+        <br/>
+        <a class="permalink" href="{{ SITEURL }}/{{ article.url }}">Permalink</a>
+        </p>
+    </section>
+{% endfor %}
+</dl>
+{% endblock %}

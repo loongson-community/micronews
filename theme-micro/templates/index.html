@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content_title %}{% endblock %}
+{% block content %}
+{% include 'pagination.html' %}
+{% if articles %}
+
+    {% for article in articles_page.object_list %}
+    <section id="box">
+        <div class="dent">{{ article.content }}</div>
+
+        <p class="post-dent">
+        Submitted on {{ article.date|strftime('%d %B %Y %H:%M:%S') }}
+        <br/>
+        By {% for author in article.authors %} {{ author }} {% endfor %}
+        <br/>
+        <a class="permalink" href="{{ SITEURL }}/{{ article.url }}">Permalink</a>
+        </p>
+    </section>
+    {% endfor %}
+
+{% endif %}
+
+{% include 'pagination.html' %}
+{% endblock content %}
+

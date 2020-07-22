@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<section id="box">
+<h1>Archives for {{ SITENAME }}</h1>
+
+{% for year, year_group in dates|groupby('date.year')|reverse %}
+{% for month, month_group in year_group|groupby('date.month')|reverse %}
+  <h4 class="date">{{ (month_group|first).date|strftime('%b %Y') }}</h4>
+  <div class="post archives">
+    <ul>
+    {% for article in month_group %}
+      <div style="text-align:right;">{{ article.locale_date }} - <a href="{{ SITEURL }}/{{ article.url }}">Permalink</a></div>
+      <li>{{ article.content }}</li>
+      <br/>
+    {% endfor %}
+    </ul>
+  </div>
+{% endfor %}
+{% endfor %}
+
+
+</section>
+{% endblock %}

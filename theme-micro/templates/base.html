@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+<head>
+    <meta charset="utf-8" />
+    <title>{% block title %}{{ SITENAME }}{%endblock%}</title>
+    <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}" />
+    {% if FEED_ATOM %}
+    <link href="{{ SITEURL }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+    {% endif %}
+    {% if FEED_RSS %}
+    <link href="{{ SITEURL }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+    {% endif %}
+
+    {% block opengraph %}
+    {% block opengraph_type %}
+    <meta property="og:type" content="website">
+    {% endblock %}
+    {% endblock %}
+
+</head>
+
+<body>
+    <header id="header">
+    <h1><a href="{{ SITEURL }}/">{{ SITENAME }} {% if SITESUBTITLE %} <strong>{{ SITESUBTITLE }}</strong>{% endif %}</a></h1>
+        <nav>
+		<ul>
+        {% for title, link in MENUITEMS %}
+        <li><a href="{{ link }}">{{ title }}</a></li>
+        {% endfor %}
+
+        {% if DISPLAY_PAGES_ON_MENU %}
+        {% for pg in pages %}
+        <li{% if pg == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ pg.url }}">{{ pg.title }}</a></li>
+        {% endfor %}
+        {% endif %}
+
+        {% if FEED_ATOM %}
+        <li><a class="social" href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate">Atom feed</a></li>
+        {% endif %}
+
+        {% if FEED_RSS %}
+        <li><a class="social" href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate">RSS feed</a></li>
+        {% endif %}
+
+        </ul>
+	    </nav>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer id="footerinfo">
+    <p>This service is run by the <a href="https://wiki.debian.org/Teams/Publicity">Debian Publicity Team</a></p>
+    </footer>
+
+</body>
+</html>
