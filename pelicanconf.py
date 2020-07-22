@@ -3,15 +3,15 @@
 
 # Basic details
 AUTHOR = 'Loongson Community'
-SITENAME = 'Loongson micronews'
+SITENAME = '狗剩微闻'
 # This is only required in publishconf.py
-SITEURL = 'https://loongson-community.github.io/micronews'
+SITEURL = 'https://micronews.godson.ac.cn'
 PATH = 'content'
 OUTPUT_PATH = 'output/'
 
 # Configuration
 TIMEZONE = 'Asia/Shanghai'
-DEFAULT_LANG = 'en'
+DEFAULT_LANG = 'zh'
 DELETE_OUTPUT_DIRECTORY = True
 THEME = "theme-micro"
 DEFAULT_PAGINATION =10
@@ -65,8 +65,10 @@ SOCIAL = ()
 PATH = 'content'
 STATIC_PATHS = [
     'extras/favicon.ico',
-	'images',
+    'extras/CNAME',
+    'images',
     ]
 EXTRA_PATH_METADATA = {
     'extras/favicon.ico': {'path': 'favicon.ico'},
+    'extras/CNAME': {'path': 'CNAME'},
     }

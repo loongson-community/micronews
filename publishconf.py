@@ -6,7 +6,7 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = 'https://micronews.debian.org'
+SITEURL = 'https://micronews.godson.ac.cn'
 RELATIVE_URLS = False
 DELETE_OUTPUT_DIRECTORY = True
 
