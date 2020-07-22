@@ -97,7 +97,7 @@ with open(dent_file, "w") as f:
     f.write(dent)
 
 if args.i:
-    commit_msg = 'Issue - ' + str(args.i) + ' ' + str(dent_file)
+    commit_msg = 'Issue - #' + str(args.i) + ' ' + str(dent_file)
 else:
     commit_msg = 'New post ' + str(dent_file)
 
@@ -113,7 +113,10 @@ Please commit your changes and push by running the following commands:
 """.format('\n'.join(cmds)))
 
 try:
-    if args.a == True or input("Do you want to run this now? [y/N] ").strip().lower() == 'y':
+    if args.y == True:
+        for x in cmds:
+            subprocess.check_call(x, shell=True)
+    elif input("Do you want to run this now? [y/N] ").strip().lower() == 'y':
         for x in cmds:
             subprocess.check_call(x, shell=True)
 except KeyboardInterrupt:
