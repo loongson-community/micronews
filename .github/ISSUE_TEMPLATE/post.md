@@ -1,8 +1,8 @@
 ---
 name: post
 about: Post to the micronews
-title: "[Post]"
-labels: ''
+title: "[Post] "
+labels: post
 assignees: ''
 
 ---
